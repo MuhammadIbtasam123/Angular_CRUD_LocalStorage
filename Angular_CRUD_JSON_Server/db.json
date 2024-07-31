@@ -1,0 +1,37 @@
+{
+  "students": [
+    {
+      "id": "1",
+      "name": "muhammd ibtasam",
+      "email": "ibtasm@gmail.com",
+      "age": 23,
+      "phone": "324234",
+      "city": "lahore",
+      "state": "punjab",
+      "zip": "2233",
+      "address": "lahore"
+    },
+    {
+      "id": "2",
+      "name": "Sir Afzal",
+      "email": "sir@gmail.com",
+      "age": 20,
+      "phone": "23224324",
+      "city": "lahore",
+      "state": "Punjab",
+      "zip": "2233",
+      "address": "Lahore"
+    },
+    {
+      "id": "3",
+      "name": "muhammd ibtasam",
+      "email": "ibtasm@gmail.com",
+      "age": "",
+      "phone": "324234",
+      "city": "lahore",
+      "state": "",
+      "zip": "2233",
+      "address": "lahore"
+    }
+  ]
+}

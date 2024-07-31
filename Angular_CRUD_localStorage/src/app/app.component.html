@@ -1,0 +1,94 @@
+<div class="container mt-5">
+  <h1 class="text-center">Student Management</h1>
+  <button class="btn btn-primary mb-3" (click)="openModal()">Create Student</button>
+  
+  <div *ngIf="StudentList.length <= 0 ">
+    <p>No Student Data to Show</p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let student of StudentList; let i = index">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">{{ student.name }}</h5>
+          <p class="card-text">
+            <strong>Email:</strong> {{ student.email }}<br>
+            <strong>Age:</strong> {{ student.age }}<br>
+            <strong>Phone No:</strong> {{ student.phone }}<br>
+            <strong>City:</strong> {{ student.city }}<br>
+            <strong>State:</strong> {{ student.state }}<br>
+            <strong>Zip Code:</strong> {{ student.zip }}<br>
+            <strong>Address:</strong> {{ student.address }}
+          </p>
+          <button class="btn btn-warning" (click)="Update(i+1)">Edit</button>
+          <button class="m-2 btn btn-danger" (click)="Delete(i+1)">Delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal for Create/Edit Student -->
+<div #myModal [ngClass]="isDialogBoxOpen ? 'modal view':'modal'" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header d-flex justify-content-between">
+        <h5 class="modal-title">Create Student</h5>
+        <button type="button" class="close"  aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-row d-flex justify-content-between">
+            <div class="form-group  col-md-5">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" [(ngModel)] = "StudentObj.name" name="name">
+            </div>
+            <div class="form-group  col-md-5">
+              <label for="email">Email</label>
+              <input type="email" id="email" class="form-control" [(ngModel)] = "StudentObj.email" name="eamil">
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-between" >
+            <div class="form-group col-md-5">
+              <label for="age">Age</label>
+              <input type="number" id="age" class="form-control" [(ngModel)] = "StudentObj.age" name="age">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="phone">Phone No</label>
+              <input type="text" id="phone" class="form-control" [(ngModel)] = "StudentObj.phone" name="phone">
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-between">
+            <div class="form-group col-md-5">
+              <label for="city">City</label>
+              <input type="text" id="city" class="form-control" [(ngModel)] = "StudentObj.city" name="city">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="state">State</label>
+              <input type="text" id="state" class="form-control" [(ngModel)] = "StudentObj.state" name="state">
+            </div>
+          </div>
+          <div class="form-row d-flex justify-content-between">
+            <div class="form-group col-md-5">
+              <label for="zip">Zip Code</label>
+              <input type="text" id="zip" class="form-control" [(ngModel)] = "StudentObj.zip" name="zip">
+            </div>
+            <div class="form-group col-md-5">
+              <label for="address">Address</label>
+              <textarea id="address" class="form-control" [(ngModel)] = "StudentObj.address" name="address"></textarea>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button>
+        <button *ngIf="!update" type="button" class="btn btn-primary" (click)="SaveStudent()">Create Student</button>
+        <button *ngIf="update" type="button" class="btn btn-primary" (click)="UpdateStudent()">Update Student</button>
+        
+      </div>
+
+    </div>
+  </div>
+</div>
