@@ -1,17 +1,6 @@
 {
   "students": [
     {
-      "id": "1",
-      "name": "muhammd ibtasam",
-      "email": "ibtasm@gmail.com",
-      "age": 23,
-      "phone": "324234",
-      "city": "lahore",
-      "state": "punjab",
-      "zip": "2233",
-      "address": "lahore"
-    },
-    {
       "id": "2",
       "name": "Sir Afzal",
       "email": "sir@gmail.com",
