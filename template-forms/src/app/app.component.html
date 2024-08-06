@@ -1,0 +1,130 @@
+<div class="Container Container1">
+  <section class="container">
+    <header>Registration Form</header>
+  
+    <form class="form" #signupForm="ngForm" (ngSubmit)="OnSubmission()">
+      <div class="column">
+        <div class="input-box">
+          <input [ngClass]="{'error-border': Name.invalid && Name.touched}" type="text" placeholder="First Name" name="firstName" [(ngModel)]="FormObj.firstName" #Name="ngModel" required maxlength="20" minlength="7"/>
+          <small *ngIf="Name.invalid && Name.touched && (Name.value === '')" class="error">*Enter Your First Name</small><br>
+          <small *ngIf="Name.invalid && Name.touched && Name.value.length > 0 && Name.value.length < 7" class="error">*Minimum Character should be > 10</small>
+        </div>
+        
+        <div class="input-box">
+          <input [ngClass]="{'error-border':LastName.invalid && LastName.touched}" type="text" placeholder="Last Name" name="lastName" [(ngModel)]="FormObj.lastName" #LastName="ngModel" required />
+          <small *ngIf="LastName.invalid && LastName.touched" Class="error">*Enter Your Last Name</small>
+        </div>
+      </div>
+  
+      <div class="input-box">
+        <input [ngClass]="{'error-border':Email.invalid && Email.touched}" type="email" placeholder="Email" name="email" [(ngModel)]="FormObj.email" #Email="ngModel" required email />
+        <small *ngIf="Email.invalid && Email.touched" Class="error">*Enter Your Email</small>
+      </div>
+  
+      <div class="column">
+        <div class="input-box">
+          <input [ngClass]="{'error-border':PhoneNo.invalid && PhoneNo.touched}" type="number" placeholder="Phone Number" name="phoneNo" [(ngModel)]="FormObj.phoneNo" #PhoneNo="ngModel"/>
+          <small *ngIf="PhoneNo.invalid && PhoneNo.touched" class="error">*Enter Your Phone Number</small>
+        </div>
+        <div class="input-box">
+          <input [ngClass]="{'error-border':DOB.invalid && DOB.touched}" type="date" placeholder="Date of Birth" name="dob" [(ngModel)]="FormObj.dob" #DOB="ngModel" />
+          <small *ngIf="DOB.invalid && DOB.touched" class="error">*Enter Your name</small>
+        </div>
+      </div>
+  
+      <div class="input-box">
+        <input  type="text" placeholder="Username" name="userName" [(ngModel)]="FormObj.userName" #UserName="ngModel" />
+        <button type="button" class="btn-gen-username" (click)="generateUsername()">Create a Username</button>
+      </div>
+  
+      <div class="gender-box">
+        <h3>Gender</h3>
+        <div class="gender-option">
+          <div class="gender" *ngFor="let gen of GenderArray; let i = index">
+            <input type="radio" [id]="gen['id']" name="gender" [(ngModel)]="FormObj.gender" [value]="gen['gender']" />
+            <label [for]="gen['id']">{{gen['display']}}</label>
+          </div>
+          <!-- <div class="gender" >
+            <input type="radio"  name="gender"  value="Male"/>
+            <label >Male</label>
+          </div>
+          <div class="gender" >
+            <input type="radio"  name="gender"  value="Female"/>
+            <label >Female</label>
+          </div>
+          <div class="gender" >
+            <input type="radio"  name="gender"  value="Other"/>
+            <label >Other</label>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="input-box address" ngModelGroup="address" #addr="ngModelGroup">
+        <label>Address</label>
+        <input [ngClass]="{'error-border':Street1.invalid && Street1.touched}" type="text" placeholder="Street address" name="street1" [(ngModel)]="FormObj.address.street1" #Street1="ngModel" required/>
+        <small *ngIf="Street1.invalid && Street1.touched" Class="error">*Enter street address 1</small>
+        <input [ngClass]="{'error-border':Street2.invalid && Street2.touched}" type="text" placeholder="Street address line 2" name="street2" [(ngModel)]="FormObj.address.street2" #Street2="ngModel" required/>
+        <small *ngIf="Street2.invalid && Street2.touched" Class="error">*Enter street address 2</small>
+        <div class="column">
+          <div class="select-box">
+          <div>
+            <select name="country" [(ngModel)]="FormObj.address.country">
+              <option value="" selected disabled hidden>Choose country</option>              
+              <option>America</option>
+              <option>Japan</option>
+              <option>India</option>
+              <option>Nepal</option>
+            </select>
+          </div>
+          </div>
+          <div>
+            <input [ngClass]="{'error-border':City.invalid && City.touched}" type="text" placeholder="City" name="city" [(ngModel)]="FormObj.address.city"  #City="ngModel" />
+            <small *ngIf="City.invalid && City.touched" Class="error">*Enter City</small>
+          </div>
+  
+        </div>
+        <div class="column">
+          <div>
+            <input [ngClass]="{'error-border':Religion.invalid && Religion.touched}" type="text" placeholder="Region" name="region" [(ngModel)]="FormObj.address.region" #Religion="ngModel" />
+            <small *ngIf="Religion.invalid && Religion.touched" Class="error">*Enter Region</small>
+          </div>
+        </div>
+      </div>
+      <small *ngIf="addr.invalid && addr.touched" Class="error">*Address Form have missing value</small><br>
+      <small *ngIf="signupForm.invalid && addr.valid" Class="error">*Kindly fill all the required information</small>
+      <input *ngIf="!updateButton" type="submit" value="Submit" class="submit-btn" [disabled]="signupForm.invalid"  [ngClass]="{'Disabled': signupForm.invalid}">
+
+    </form>
+  </section>
+  <!-- [disabled]="signupForm.invalid" -->
+  
+  <section class="user-detail-container" *ngFor="let user of userDetails; let i = index" >
+    <div class="user-details-container">
+      <div class="user-avatar" (click)="UpdateFormData(user.id)">
+        <p>{{ user.firstName | userPipe:user.lastName }}</p>
+      </div>
+      <div class="user-details">
+        <div class="user-name">
+          <h2> {{user.firstName +' '+ user.lastName}} </h2>
+        </div>
+        <p><b>Email:</b>  {{user.email}}</p>
+        <p><b>Username:</b>  {{user.userName}}  </p>
+        <p><b>Date of birth:</b>  {{user.dob}} </p>
+        <div class="user-name">
+          <h3>Address: {{user.address.street1 + " " + user.address.street2 }}</h3>
+        </div>
+        <span>Counbtry: {{user.address.country}} </span>.
+        <span>City: {{user.address.city}} </span>.
+        <span>Region: {{user.address.region}} </span>.
+        <span>id : {{user.id}}</span>
+      </div>
+    </div>
+    <div class="Container">      
+      <button class="delete" (click)="DeleteUser(user.id)">Delete</button>
+      <button class="update" (click)="UpdateUser(user.id)">Update</button>
+
+    </div>
+
+
+  </section>
+</div>

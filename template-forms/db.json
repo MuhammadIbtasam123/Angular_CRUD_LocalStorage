@@ -1,0 +1,38 @@
+{
+  "users": [
+    {
+      "id": "6fe1",
+      "firstName": "Muhammd",
+      "lastName": "Ibtasam",
+      "email": "ibtasm123@gmail.com",
+      "phoneNo": 324234,
+      "dob": "2024-08-01",
+      "gender": "other",
+      "userName": "muhibt2024",
+      "address": {
+        "street1": "lahore",
+        "street2": "wdw",
+        "country": "Japan",
+        "city": "lahore",
+        "region": "Asia"
+      }
+    },
+    {
+      "id": "86c3",
+      "firstName": "Muhammd Ali 123",
+      "lastName": "Ghumar",
+      "email": "Ali@gmail.com",
+      "phoneNo": 32423412342,
+      "dob": "2024-08-02",
+      "gender": "male",
+      "userName": "MuhGhu2024",
+      "address": {
+        "street1": "lahore",
+        "street2": "samnabad",
+        "country": "America",
+        "city": "lahore",
+        "region": "Asia"
+      }
+    }
+  ]
+}

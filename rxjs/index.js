@@ -33,11 +33,10 @@ const observable = new Observable((subscriber)=>{
 })
 
 // making a stream of operators - pipe
-
  const stream = observable.pipe(
     map((ob)=>{
         return ob
-    })
+    })   
  )
 
 // entity that 
@@ -50,3 +49,23 @@ stream.subscribe(observer)
 
 // if no pipe - observable.subscribe(observer)
 // if pipe - something = observable.pipe() then somehting.subscribe(observer)
+
+ 
+let observable1 =  new Observable((subscriber)=>{
+    subscriber.next("hello world!");
+})
+
+
+observable1
+
+
+const observer1 = {
+    next(value){
+        console.log(value)
+    },
+    error(err){
+        console.log(err)
+    }
+}
+
+observable1.subscribe(observer1)
