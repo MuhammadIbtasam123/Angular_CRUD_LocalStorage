@@ -1,0 +1,12 @@
+<div *ngIf="articles?.length > 0; else skeleton">
+  <!-- Render actual articles here -->
+  <div *ngFor="let article of articles">
+    <h2>{{ article?.title }}</h2>
+    <p>{{ article?.content }}</p>
+  </div>
+</div>
+
+<ng-template #skeleton>
+  <!-- Skeleton Loader template -->
+  <ngx-skeleton-loader count="2" appearance="line"></ngx-skeleton-loader>
+</ng-template>

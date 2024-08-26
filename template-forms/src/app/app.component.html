@@ -85,8 +85,8 @@
         </div>
         <div class="column">
           <div>
-            <input [ngClass]="{'error-border':Religion.invalid && Religion.touched}" type="text" placeholder="Region" name="region" [(ngModel)]="FormObj.address.region" #Religion="ngModel" />
-            <small *ngIf="Religion.invalid && Religion.touched" Class="error">*Enter Region</small>
+            <input [ngClass]="{'error-border':region.invalid && region.touched}" type="text" placeholder="Region" name="region" [(ngModel)]="FormObj.address.region" #region="ngModel" />
+            <small *ngIf="region.invalid && region.touched" Class="error">*Enter Region</small>
           </div>
         </div>
       </div>

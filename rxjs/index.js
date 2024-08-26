@@ -16,7 +16,7 @@
 // reactive programming 
 
 import {Observable} from 'rxjs'
-import {map,pluck,catchError} from 'rxjs/operators';
+import {map} from 'rxjs/operators';
 
 const data = [
     {id:1,name:'john'},
@@ -56,7 +56,9 @@ let observable1 =  new Observable((subscriber)=>{
 })
 
 
-observable1
+observable1.subscribe((data)=>{
+    console.log(data);
+});
 
 
 const observer1 = {

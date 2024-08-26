@@ -1,0 +1,126 @@
+<section class="container">
+  <header>Registration Form</header>
+
+  <form class="form" [formGroup]="reactiveForm" (ngSubmit)="onSubmit()">
+    <div class="column">
+      <div class="input-box">
+        <input type="text" placeholder="First Name" formControlName="firstName"    [ngClass]="{ 'error-occured': reactiveForm.get('firstName')?.invalid && reactiveForm.get('firstName')?.touched }"/>
+        <small *ngIf="f['firstName']?.invalid && isSubmitted">*Please enter you First Name</small><br>
+        <small *ngIf="reactiveForm.get('firstName').errors?.['noSpaceValidator']">*Enter Name Without Space</small>
+
+      </div>
+      <div class="input-box">
+        <input type="text" placeholder="Last Name" formControlName="lastName" [ngClass]="{'error-occured':reactiveForm.get('lastName').invalid && reactiveForm.get('lastName').touched}"/>
+        <small *ngIf="reactiveForm.get('lastName')?.invalid && reactiveForm.get('lastName')?.touched">*Enter Your last name</small>
+      </div>
+    </div>    
+
+    <div class="input-box">
+      <input type="text" placeholder="Email" formControlName="email" [ngClass]="{'error-occured':reactiveForm.get('email').invalid && reactiveForm.get('email').touched}"/>
+      <small *ngIf="reactiveForm.get('email').invalid && reactiveForm.get('email')?.touched">*Enter Your Email</small>
+      <!-- *ngIf=" isFormSubmitted &&f['email'].errors" -->
+    </div>
+
+    <div class="column">
+      <div class="input-box">
+        <input type="text" placeholder="username" formControlName="userName"/>
+        <button class="btn-gen-username" type="button">
+          Create a Username
+        </button>
+      </div>
+      <div class="input-box">
+        <input type="date" placeholder="Date of Birth" formControlName="date"/>
+      </div>
+    </div>
+
+    <div class="gender-box">
+      <h3>Gender</h3>
+      <div class="gender-option">
+        <div class="gender">
+          <input type="radio" value="male" id="check-male" checked formControlName="gender"/>
+          <label for="check-male">Male</label>
+        </div>
+        <div class="gender">
+          <input type="radio" value="female" id="check-female" formControlName="gender"/>
+          <label for="check-female">Female</label>
+        </div>
+        <div class="gender">
+          <input type="radio" value="other" id="check-other" form formControlName="gender" />
+          <label for="check-other">Prefer not to say</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="input-box address" formGroupName="address">
+      <label>Address</label>
+      <input type="text" placeholder="Street address" formControlName="streetAddress"/>
+      <div class="column">
+        <div class="select-box">
+          <select name="country" formControlName="country">
+            <!-- <option hidden>Country</option> -->
+            <option>America</option>
+            <option>Japan</option>
+            <option>India</option>
+            <option>Nepal</option>
+          </select>
+        </div>
+        <input type="text" placeholder="City" formControlName="city"/>
+      </div>
+      <div class="column">
+        <input type="text" placeholder="Region" formControlName="region"/>
+        <input type="number" placeholder="Postal code" formControlName="postalCode"/>
+      </div>
+    </div>
+
+    <!--HTML for Skills Form Array -->
+    <div class="input-box skills" formArrayName="skills">
+      <h4>Add Skills</h4>
+      <div class="column" *ngFor="let sk of reactiveForm.get('skills')['controls']; let i = index">
+        <input type="text" placeholder="Add Skill..."  [formControlName]="i">
+        <button type="button" class="btn-add-delete" (click)="DeleteSkill(i)">Delete</button>
+      </div> 
+      <div>
+        <small *ngIf="reactiveForm.get('skills').invalid && reactiveForm.get('skills').touched">*Enter all the Skills</small>
+
+      </div>
+    </div>
+    <button type="button" class="btn-add-delete" (click)="AddSkill()">Add Skills</button>
+
+    <!--HTML for Experience Form Array -->
+    <div class="input-box" formArrayName="experience">
+      <div class="experience" *ngFor="let exp of reactiveForm.get('experience')['controls']; let i = index" [formGroupName]="i">
+        <label>Experience {{i+1}}</label>
+        <input type="text" placeholder="Company Name"  style="width: 95%;" formControlName="company"/>
+        <small *ngIf="exp.get('company').touched && exp.get('company').invalid">
+          *Add Company Name
+        </small>          
+        <div class="column">
+          <div class="select-box">
+            <select formControlName="position">
+              <option hidden>Position</option>
+              <option>Junior Developer</option>
+              <option>Software Developer</option>
+              <option>Senior Developer</option>
+              <option>Team Lead</option>
+            </select>
+            <!-- looping over the form array to get Required formGroup inside group to fetch form Control -->
+            <small *ngIf="exp.get('position').touched && exp.get('position').invalid">
+              *Add Position 
+            </small>  
+          </div>
+          <input type="number" placeholder="Experience" formControlName="totalExp"/>
+        </div>
+        <div class="column">
+          <input type="date" placeholder="Start Date" formControlName="start"/>
+          <input type="date" placeholder="End Date" formControlName="end"/>
+        </div>
+        <button type="button" class="btn-add-delete" (click)="DeleteExperince(i)">Delete Experience</button>
+      </div>
+    </div>
+    <button type="button" class="btn-add-delete" (click)="AddExperience()">Add Experience</button>
+
+    <input type="submit" value="Submit" class="submit-btn"> 
+    <!-- [disabled]="!reactiveForm.valid" -->
+  </form>
+</section>
+

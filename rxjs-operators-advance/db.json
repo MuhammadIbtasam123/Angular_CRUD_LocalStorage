@@ -1,0 +1,60 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "name": "Inception",
+        "title": "Dream Within a Dream",
+        "author": "Christopher Nolan",
+        "ratings": 8.8,
+        "price": { "standard": 14.99, "deluxe": 19.99 },
+        "releaseDate": "2010-07-16",
+        "genres": ["Action", "Sci-Fi", "Thriller"],
+        "cast": ["Leonardo DiCaprio", "Joseph Gordon-Levitt", "Ellen Page"]
+      },
+      {
+        "id": 2,
+        "name": "The Matrix",
+        "title": "Reality vs Illusion",
+        "author": "Lana Wachowski, Lilly Wachowski",
+        "ratings": 8.7,
+        "price": { "standard": 9.99, "deluxe": 14.99 },
+        "releaseDate": "1999-03-31",
+        "genres": ["Action", "Sci-Fi"],
+        "cast": ["Keanu Reeves", "Laurence Fishburne", "Carrie-Anne Moss"]
+      },
+      {
+        "id": 3,
+        "name": "Interstellar",
+        "title": "Space Exploration",
+        "author": "Christopher Nolan",
+        "ratings": 8.6,
+        "price": { "standard": 19.99, "deluxe": 24.99 },
+        "releaseDate": "2014-11-07",
+        "genres": ["Adventure", "Drama", "Sci-Fi"],
+        "cast": ["Matthew McConaughey", "Anne Hathaway", "Jessica Chastain"]
+      },
+      {
+        "id": 4,
+        "name": "The Godfather",
+        "title": "Crime Family",
+        "author": "Francis Ford Coppola",
+        "ratings": 9.2,
+        "price": { "standard": 24.99, "deluxe": 29.99 },
+        "releaseDate": "1972-03-24",
+        "genres": ["Crime", "Drama"],
+        "cast": ["Marlon Brando", "Al Pacino", "James Caan"]
+      },
+      {
+        "id": 5,
+        "name": "The Dark Knight",
+        "title": "Gotham's Hero",
+        "author": "Christopher Nolan",
+        "ratings": 9.0,
+        "price": { "standard": 12.99, "deluxe": 17.99 },
+        "releaseDate": "2008-07-18",
+        "genres": ["Action", "Crime", "Drama"],
+        "cast": ["Christian Bale", "Heath Ledger", "Aaron Eckhart"]
+      }
+    ]
+  }
+  

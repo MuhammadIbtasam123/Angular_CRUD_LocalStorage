@@ -1,0 +1,50 @@
+{
+    "movies": [
+      {
+        "id": 1,
+        "name": "Inception",
+        "title": "Dream Within a Dream",
+        "author": "Christopher Nolan",
+        "ratings": 8.8,
+        "price": 14.99,
+        "releaseDate": "2010-07-16"
+      },
+      {
+        "id": 2,
+        "name": "The Matrix",
+        "title": "Reality vs Illusion",
+        "author": "Lana Wachowski, Lilly Wachowski",
+        "ratings": 8.7,
+        "price": 9.99,
+        "releaseDate": "1999-03-31"
+      },
+      {
+        "id": 3,
+        "name": "Interstellar",
+        "title": "Space Exploration",
+        "author": "Christopher Nolan",
+        "ratings": 8.6,
+        "price": 19.99,
+        "releaseDate": "2014-11-07"
+      },
+      {
+        "id": 4,
+        "name": "The Godfather",
+        "title": "Crime Family",
+        "author": "Francis Ford Coppola",
+        "ratings": 9.2,
+        "price": 24.99,
+        "releaseDate": "1972-03-24"
+      },
+      {
+        "id": 5,
+        "name": "The Dark Knight",
+        "title": "Gotham's Hero",
+        "author": "Christopher Nolan",
+        "ratings": 9.0,
+        "price": 12.99,
+        "releaseDate": "2008-07-18"
+      }
+    ]
+  }
+  

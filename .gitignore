@@ -1,5 +1,11 @@
 /Angular_CRUD_JSON_Server/node_modules
 /Angular_CRUD_localStorage/node_modules
+/Angular-Material/node_modules
 /movie/node_modules
+/reactive-forms/node_modules
+/routing/node_modules
 /rxjs/node_modules
+/rxjs-operators/node_modules
+/rxjs-operators-advance/node_modules
+/skeleton-loader/node_modules
 /template-forms/node_modules
