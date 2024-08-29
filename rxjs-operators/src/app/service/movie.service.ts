@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { response } from 'express';
 import { count, merge, Observable, pluck, reduce } from 'rxjs';
 import { filter ,tap, from, map, mergeMap, toArray,first, take } from 'rxjs';
 
@@ -14,7 +15,9 @@ export class MovieService {
 
   // see what data we recive from hitting api
   showData() : Observable <any>{
-    return this.http.get<any>(`${this.privateURL}`)
+    return this.http.get<any>(`${this.privateURL}`).pipe(
+      map(responseData => responseData.movies.map((item:any) => item))
+    )
   }
 
   // Fetch all movies released between "2000-01-01" and "2010-12-31".
